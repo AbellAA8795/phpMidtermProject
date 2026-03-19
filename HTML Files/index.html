@@ -32,24 +32,24 @@
     <div class="registration-page" id="jsRegister">
         <h1>Register Account</h1>
 
-        <form action="">
+        <form action="" onsubmit="passwordConfirmation(event)">
             <label for="">Full name</label>
             <i class="fa-solid fa-circle-user ic"></i>
-            <input type="text" placeholder="Full name">
+            <input type="text" placeholder="Full name" id="jsName">
             
             <label for="">Email</label>
             <i class="fa-solid fa-envelope ic"></i>
             <input type="text" placeholder="Email">
             
-            <label for="">Password</label>
+            <label for="">Password <span class="regErrorPassword"></span></label>
             <i class="fa-solid fa-lock ic"></i>
-            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Password" id="jsRegPassword" class="jsDesPassword">
             
-            <label for="">Confirm Password</label>
+            <label for="">Confirm Password<span class="regErrorConfirmPassword"></span></label>
             <i class="fa-solid fa-lock ic"></i>
-            <input type="password" placeholder="Confirm Password">
+            <input type="password" placeholder="Confirm Password" id="jsRegConfirmPassword" class="jsDesConPassword">
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Register" >
         </form>
         
         <p>Already have an account?<br><a style="cursor: pointer; color: rgb(0, 119, 255);" onclick="toLogin(true)">Go Back</a></p>

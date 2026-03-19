@@ -5,9 +5,16 @@ let email = document.getElementsByClassName('jsDesignEmail');
 let password = document.getElementsByClassName('jsDesignPassword');
 let userEmail = document.getElementById('jsEmail');
 let userPassword = document.getElementById('jsPassword');
+let registerName = document.getElementById('jsName')
+let registerPassword = document.getElementById('jsRegPassword')
+let registerConfirmPassword = document.getElementById('jsRegConfirmPassword')
+let regpass = document.getElementsByClassName('jsDesPassword')
+let regConPass = document.getElementsByClassName('jsDesConPassword')
+let errorPassword = document.getElementsByClassName('regErrorPassword');
+let errorConformPassword = document.getElementsByClassName('regErrorConfirmPassword');
 
 let isWrong = false;
-
+let isRegWrong = false;
 registerForm.style.display="none";
 
 // for login verification
@@ -17,7 +24,7 @@ function verifyInput (event){
 
     //for testing only 
     const myUsername = 'GabrielRey@gmail.com';
-    const myPassword = 'hawakkoangbeat';
+    const myPassword = 'hawakmoangbeat';
 
     if (userEmail.value === "" || userPassword.value === ""){
         isWrong = true;
@@ -33,6 +40,13 @@ function verifyInput (event){
         error.style.color = 'red';
         userEmail.value = "";
         userPassword.value = "";
+    }else{
+        error.innerHTML = '*You are in!';
+        error.style.color = 'green';
+        userEmail.value = "";
+        userPassword.value = "";
+        isWrong=false;
+        wrongInput();
     }
 
 }
@@ -66,6 +80,8 @@ const toRegister = (isVisible) => {
         loginForm.style.display = "none";
         registerForm.style.display = "block";
         isWrong = false;
+        error.innerHTML = '';
+        error.style.color = "black";
         wrongInput();
     }
 };
@@ -76,3 +92,67 @@ const toLogin = (isVisible) => {
         registerForm.style.display = "none";
     }
 };
+
+// for register verification
+
+registerName.addEventListener('keydown',function(event){
+    if ((/\d/g).test(event.key)) {
+      event.preventDefault(); 
+    }
+});
+
+function passwordConfirmation(event){
+    event.preventDefault(); 
+    if(registerPassword.value !== registerConfirmPassword.value){
+        isRegWrong = true;
+        for (let i = 0; i < errorPassword.length; i++) {
+            errorPassword[i].innerHTML = ' Password not equal';
+        }
+        for (let i = 0; i < errorConformPassword.length; i++) {
+            errorConformPassword[i].innerHTML = ' Password not equal';
+        }
+        
+        for(let i = 0; i < regpass.length; i++){
+            regpass[i].style.border = "1px solid red"
+        }
+        for(let i = 0; i < regConPass.length; i++){
+            regConPass[i].style.border = "1px solid red"
+        }
+        passwordErrors();
+    }else{
+        isRegWrong = false;
+        for (let i = 0; i < errorPassword.length; i++) {
+            errorPassword[i].innerHTML = '';
+        }
+        for (let i = 0; i < errorConformPassword.length; i++) {
+            errorConformPassword[i].innerHTML = '';
+        }
+        
+        for(let i = 0; i < regpass.length; i++){
+            regpass[i].style.border = "none"
+        }
+        for(let i = 0; i < regConPass.length; i++){
+            regConPass[i].style.border = "none"
+        }
+    }
+}
+
+function passwordErrors(){
+
+
+    if(isRegWrong){
+        for(let i = 0; i < errorPassword.length; i++){
+            errorPassword[i].style.color = 'red';
+        }
+        for(let i = 0; i < errorConformPassword.length; i++){
+            errorConformPassword[i].style.color = 'red';
+        }
+    }else{
+        for(let i = 0; i < errorPassword.length; i++){
+            errorPassword[i].style.color = 'black';
+        }
+        for(let i = 0; i < errorConformPassword.length; i++){
+            errorConformPassword[i].style.color = 'black';
+        }
+    }
+}
