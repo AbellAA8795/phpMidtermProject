@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.grid-parent{
+    display: grid;
+    position: relative;
+    min-height: 100vh;
+    grid-template-rows: 50px auto;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 5px 10px #7a7979;
+    height: 50px;
+    
+}
+.content{
+    background-color: #ECF6FF;
+    height: 100%;
+}
