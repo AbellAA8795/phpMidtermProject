@@ -137,3 +137,15 @@ i{
     justify-self: center;
     
 }
+
+.eye{
+    position: absolute;
+    right: 50px;
+    bottom: 185px;
+    color: #3C3C3C;
+    cursor: pointer;
+    
+}
+.eye1{
+    bottom: 263px;
+}

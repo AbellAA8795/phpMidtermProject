@@ -17,7 +17,7 @@ let isWrong = false;
 let isRegWrong = false;
 registerForm.style.display="none";
 
-// for login verification
+// for login verification2
 
 function verifyInput (event){
     event.preventDefault();
